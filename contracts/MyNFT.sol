@@ -40,7 +40,7 @@ contract MyNFT is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
         override(ERC721, ERC721Enumerable)
         returns (bool)
     {
-        return super.tokenURI(tokenURI(tokenId);
+        return super.tokenURI(tokenURI(tokenId));
     }
 
     function supportsInterface(bytes4 interfaceId)
