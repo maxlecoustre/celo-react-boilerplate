@@ -5,6 +5,9 @@
 // Runtime Environment's members available in the global scope.
 const hre = require("hardhat");
 
+/*
+  Counter contract old deploying tasks
+
 async function main() {
   // Hardhat always runs the compile task when running scripts with its command
   // line interface.
@@ -22,6 +25,24 @@ async function main() {
   storeContractData(deployed)
 }
 
+*/
+async function main() {
+  // Hardhat always runs the compile task when running scripts with its command
+  // line interface.
+  //
+  // If this script is run directly using `node` you may want to call compile
+  // manually to make sure everything is compiled
+  // await hre.run('compile');
+
+  const MyNFT = await hre.ethers.getContractFactory("MyNFT");
+  const deployed = await MyNFT.deploy();
+
+  await deployed.deployed();
+
+  console.log("MyNFT contract deployed to:", deployed.address);
+  storeContractData(deployed)
+}
+
 function storeContractData(contract) {
   const fs = require("fs");
   const contractsDir = __dirname + "/../src/contracts";
@@ -31,14 +52,14 @@ function storeContractData(contract) {
   }
 
   fs.writeFileSync(
-    contractsDir + "/CounterAddress.json",
+    contractsDir + "/MyNFTAddress.json",
     JSON.stringify({ Counter: contract.address }, undefined, 2)
   );
 
-  const CounterArtifact = artifacts.readArtifactSync("Counter");
+  const CounterArtifact = artifacts.readArtifactSync("MyNFT");
 
   fs.writeFileSync(
-    contractsDir + "/Counter.json",
+    contractsDir + "/MyNFT.json",
     JSON.stringify(CounterArtifact, null, 2)
   );
 }
