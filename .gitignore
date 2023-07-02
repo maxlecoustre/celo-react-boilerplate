@@ -32,3 +32,7 @@ typechain
 #Hardhat files
 cache
 artifacts
+
+#Env
+.env
+
