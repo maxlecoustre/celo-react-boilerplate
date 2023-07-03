@@ -15,7 +15,7 @@ describe("MyNFT", function () {
         const MyNFT = await ethers.getContractFactory("MyNFT");
         [owner, acc1, acc2] = await ethers.getSigners();
 
-        myNFT = await myNFT.deploy();
+        myNFT = await MyNFT.deploy();
     });
 
     it("Should set the right owner", async function () {
