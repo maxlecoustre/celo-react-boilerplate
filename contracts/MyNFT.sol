@@ -22,12 +22,18 @@ contract MyNFT is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
     }
 
     // The following functions are overrides required by Solidity
+    // _beforeEachTransfer overriden must have 4th parameter being batchSize
+    function _beforeTokenTransfer(address from, address to, uint256 tokenId, uint256 batchSize)
+    internal
+    override(ERC721, ERC721Enumerable)
+    {
+        super._beforeTokenTransfer(from, to, tokenId, batchSize);
+    }
 
     function _beforeTokenTransfer(address from, address to, uint256 tokenId)
-        internal
-        override(ERC721, ERC721Enumerable)
+    internal
     {
-        super._beforeTokenTransfer(from, to, tokenId);
+        super._beforeTokenTransfer(from, to, tokenId, 1);
     }
 
     function _burn(uint256 tokenId) internal override(ERC721, ERC721URIStorage) {
@@ -35,18 +41,19 @@ contract MyNFT is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
     }
 
     function tokenURI(uint256 tokenId)
-        public
-        view
-        override(ERC721, ERC721Enumerable)
-        returns (bool)
+    public
+    view
+    override(ERC721, ERC721URIStorage)
+    returns (string memory)
     {
-        return super.tokenURI(tokenURI(tokenId));
+        return super.tokenURI(tokenId);
     }
 
     function supportsInterface(bytes4 interfaceId)
-        public
-        view
-        override(ERC721, ERC721Enumerable)
+    public
+    view
+    override(ERC721, ERC721Enumerable, ERC721URIStorage)
+    returns (bool)
     {
         return super.supportsInterface(interfaceId);
     }
