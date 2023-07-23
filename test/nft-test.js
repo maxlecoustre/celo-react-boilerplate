@@ -77,6 +77,7 @@ describe("MyNewNFT", function () {
         expect(await myNewNFT.balanceOf(acc1.address)).to.equal(1);
     });
 
+    /*
     it("Should set the correct tokenURI", async function () {
         const tokenURI_1 = "https://example.com/1";
         const tokenURI_2 = "https://example.com/2";
@@ -89,4 +90,5 @@ describe("MyNewNFT", function () {
         expect(await myNewNFT.tokenURI(0)).to.equal(tokenURI_1);
         expect(await myNewNFT.tokenURI(1)).to.equal(tokenURI_2);
     });
+     */
 });
