@@ -53,7 +53,7 @@ async function main() {
 
   await deployed.deployed();
 
-  conseole.log("MyNewNFT contract deployed to:", deployed.address);
+  console.log("MyNewNFT contract deployed to:", deployed.address);
   storeContractData(deployed)
 
 }
