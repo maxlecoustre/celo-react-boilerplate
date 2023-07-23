@@ -34,6 +34,9 @@ async function main() {
   // manually to make sure everything is compiled
   // await hre.run('compile');
 
+  /*
+    First part for MyNFT contract deployment
+   */
   const MyNFT = await hre.ethers.getContractFactory("MyNFT");
   const deployed = await MyNFT.deploy();
 
@@ -41,6 +44,18 @@ async function main() {
 
   console.log("MyNFT contract deployed to:", deployed.address);
   storeContractData(deployed)
+
+  /*
+    Second part for MyNewNFT smart contract
+   */
+  const MyNewNFT = await hre.ethers.getContractFactory("MyNewNFT");
+  const newDeployed = await MyNewNFT.deploy();
+
+  await newDeployed.deployed();
+
+  conseole.log("MyNewNFT contract deployed to:", newDeployed.address);
+  storeContractData(newDeployed)
+
 }
 
 function storeContractData(contract) {
