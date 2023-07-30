@@ -1,4 +1,4 @@
-import {Web3Storage} from "web3.storage/dist/bundle.esm.min.js";
+import {Web3Storage} from "web3.storage"; // "/dist/bundle.esm.min.js";
 import axios from "axios";
 
 const formatName = (name) => {
@@ -94,7 +94,7 @@ export const getNfts = async (minterContract) => {
     }
 };
 
-export const fetchNftMeta = async (ipfsUrl) => {
+export const fetchNftMetadata = async (ipfsUrl) => {
     try {
         if (!ipfsUrl) return null;
         const meta = await axios.get(ipfsUrl);
