@@ -22,6 +22,10 @@ export const createNft = async (
         if (!name || !description || !ipfsImage) return;
         const { defaultAccount } = kit;
 
+        // Initialize the client with an API key
+        const client = new Web3Storage({
+            token: process.env.REACT_APP_STORAGE_API_KEY
+        });
         // convert NFT metadata to JSON format
         const data = {
             name,
@@ -57,7 +61,9 @@ export const createNft = async (
 
 export const uploadFileToWebStorage = async (e) => {
     // Initialize the client with an API key
-    const client = new Web3Storage({token: process.env.REACT_APP_STORAGE_API_KEY})
+    const client = new Web3Storage({
+        token: process.env.REACT_APP_STORAGE_API_KEY
+    });
     const files = e.target.files;
     const file = files[0];
 
