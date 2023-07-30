@@ -3,7 +3,7 @@ import { Container, Nav } from "react-bootstrap";
 import { useContractKit } from "@celo-tools/use-contractkit";
 import { Notification } from "./components/ui/Notifications";
 import Wallet from "./components/Wallet";
-import Cover from "./components/minter/nfts/Cover";
+import Cover from "./components/minter/Cover";
 import Counter from "./components/Counter";
 import { useBalance, useCounterContract } from "./hooks";
 import "./App.css";
