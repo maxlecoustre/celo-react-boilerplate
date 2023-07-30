@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import PropTypes from "prop-types";
-//import logo from "../../logo.svg";
+import logo from "../../logo.svg";
 
 const Cover = ({ name, coverImg, connect }) => {
     if (name) {
@@ -33,7 +33,7 @@ const Cover = ({ name, coverImg, connect }) => {
         );
     }
 
-    return null;.
+    return null;
 };
 
 Cover.propTypes = {
