@@ -5,7 +5,7 @@ import { Notification } from "./components/ui/Notifications";
 import Wallet from "./components/Wallet";
 import Cover from "./components/minter/Cover";
 import Nfts from "./components/minter/nfts";
-import {useBalance, useCounterContract, useMinterContract} from "./hooks";
+import {useBalance, useMinterContract} from "./hooks";
 import coverImg from "./assets/img/nft_geo_cover.png";
 import "./App.css";
 
