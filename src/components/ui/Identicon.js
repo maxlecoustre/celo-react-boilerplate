@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Jazzicon from "@metamask/jazzicon";
 
 export default function Identicon({ address, size, ...rest }) {
